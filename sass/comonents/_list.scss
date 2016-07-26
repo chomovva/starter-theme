@@ -1,0 +1,25 @@
+//
+//	LIST
+//	стили списков
+
+
+.list {
+
+	&--unstyled {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&--inline {
+		> li,
+		> .list__item {
+			display: inline-block;
+		}
+	}
+
+	&--separated {
+		
+	}
+
+}

@@ -1,0 +1,46 @@
+//
+//		Variables
+//		переменные
+
+
+
+//
+//Grid
+$screen-xs: 480px !default;
+$screen-sm: 768px !default;
+$screen-md: 992px !default;
+$screen-lg: 1280px !default;
+$screen-xl: 1570px !default;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+$container-sm: (720px + $grid-gutter-width) !default;
+$container-md: (940px + $grid-gutter-width) !default;
+$container-lg: (1140px + $grid-gutter-width) !default;
+$container-xl: (1570px + $grid-gutter-width) !default;
+
+
+
+//
+//Размеры основных блоков
+$header-h: 55px;
+$footer-h: 340px;
+
+
+
+//
+//Цвета
+$brand-color-1: #000000;
+$brand-color-2: #777777;
+$brand-color-3: #5cb85c;
+$brand-color-4: #d9534f;
+$brand-color-5: #5bc0de;
+$brand-color-6: #f0ad4e;
+
+$color-accent: $brand-color-1;
+$color-default: $brand-color-2;
+$color-success: $brand-color-3;
+$color-danger: $brand-color-4;
+$color-info: $brand-color-5;
+$color-warning: $brand-color-6;

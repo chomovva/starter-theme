@@ -1,0 +1,20 @@
+@import "helpers/_variables.scss";							//переменные (шрифты, размеры блоков, цвета, размеры сетки)
+@import "helpers/_mixins.scss";									//миксины и анонимны классы (%)
+
+@import "base/_normalize.sass";									//кроссбраузерные стили по умолчанию
+@import "base/_reset.scss";											//обнуление стилей от Эрика Майера
+@import "base/_base.scss";											//базовае стили
+
+@import "vendors/_animate.scss";								//библиотека Animate.css http://daneden.github.io/animate.css/
+@import "vendors/_bootstrap-grid.scss";					//сетка bootstrap 3
+@import "vendors/_font-awesome.scss";						//Font Awesome (стили)
+@import "vendors/wallop/_wallop.scss";					//стили слайдера wallop
+@import "vendors/wallop/_wallop--slide.scss";		//вариант смены слайдлв для wallop
+
+@import "comonents/_list.scss"; 								//стандартные стили для списков
+@import "comonents/_btn.scss";									//стандартные стили для кнопок
+@import "comonents/_icon.scss";									//подключение спрайтов и стили к ним
+@import "comonents/_form.scss";									//станлартные стили элементов форм
+
+@import "parts/_header.scss";										//стили шапки сайта
+@import "parts/_footer.scss";										//стили подвала сайта
