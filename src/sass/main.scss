@@ -1,0 +1,26 @@
+//
+@import "helpers/_variables.scss";              //переменные
+@import "helpers/_mixins.scss";                 //миксины
+
+//
+@import "base/_reset";
+@import "base/_normalize";
+@import "base/_base.scss";
+
+//
+@import "vendors/_animate.scss";
+@import "vendors/fa/_font-awesome.scss";
+@import "vendors/bootstrap/_bootstrap.scss";
+
+
+//компоненты по БЭМу
+@import "components/_icon.scss";                //спрайты
+@import "components/_btn.scss";                 //кнопки
+@import "components/_form.scss";                //формы
+@import "components/_list.scss";                //списки
+@import "components/_wrapper.scss";             //контейнер страницы, прижатие футера
+
+
+//части страницы
+@import "parts/_header.scss";										//стили шапки сайта
+@import "parts/_footer.scss";										//стили подвала сайта

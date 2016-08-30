@@ -1,0 +1,17 @@
+//
+//    WRAPPER
+//    контейнер страницы, прижатие футера
+
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    &--main {
+      flex: 1;
+    }
+  }
+
+}

@@ -1,0 +1,16 @@
+include helpers/_variables
+include helpers/_mixins
+- page.title = "Заголовок страницы";
+- page.description = "Описание страницы";
+doctype html
+html(lang="ru")
+  include components/_head
+  body
+    .wrapper#wrapper
+      include components/_header
+      main.wrapper__item.wrapper__item--main.main#main
+        .container
+          .row
+            .col-xs-12
+              p Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Коварный над свое, безорфографичный, если но пунктуация повстречался вопроса сих правилами гор предложения своих раз!
+      include components/_footer

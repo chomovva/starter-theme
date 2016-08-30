@@ -1,0 +1,50 @@
+//- 
+//- Микроразметка
+mixin socialcards(list)
+  -
+    if (list == 'all') {
+      list = ['twitter', 'opengraph', 'googleplus'];
+    } 
+  each item in list
+    case item
+      when 'twitter'
+        meta(name="twitter:site", content="#{page.url}")
+        meta(name="twitter:creator", content="#{page.author}")
+        meta(name="twitter:title", content="#{page.title}")
+        meta(name="twitter:description", content="#{page.description}")
+        meta(name="twitter:image:src", content="#{page.thumbnail}")
+      when 'opengraph'
+      when 'facebook'
+      when 'vk'
+        meta(property="og:url", content="#{page.url}")
+        meta(property="og:type", content="#{page.type}")
+        meta(property="og:title", content="#{page.title}")
+        meta(property="og:image", content="#{page.thumbnail}")
+        meta(property="og:description", content="#{page.description}")
+        meta(property="og:site_name", content="#{page.site}")
+      when 'googleplus'
+        meta(itemprop="name", content="#{page.title}")
+        meta(itemprop="description", content="#{page.description}")
+        meta(itemprop="image", content="#{page.thumbnail}")
+//- 
+//- навигация
+mixin nav(list, btn)
+  ul.nav__list.list
+    each item in list
+      li
+        a(href="#{item.href}", title="#{item.title}") #{item.title}
+        - if (item.submenu) {
+          ul.submenu
+            each subitem in item.submenu
+              li
+                a(href="#{subitem.href}", title="#{subitem.title}") #{subitem.title}
+        - }
+  - if (btn) {
+    button.nav__toggle#nav__toggle
+      span
+      span
+      span
+  - }
+//- 
+//- favicon для разных устройств
+//- пока в разработке ))))))
