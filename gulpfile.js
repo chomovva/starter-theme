@@ -27,19 +27,21 @@ gulp.task( 'pug', function( callback ) {
 
 
 //gulp-rigger - сборка и минификация js файлов
-gulp.task( 'js', function (callback) {
-    gulp.src('./src/scripts/main.js')
+gulp.task( 'js', function ( callback ) {
+    gulp.src( './src/scripts/*.js' )
         .pipe( plumber() )
         .pipe( rigger() )
-        .pipe( uglify() )
-        .pipe( gulp.dest('./build/scripts/')) ;
+        .pipe( gulp.dest( './build/scripts/' ) )
+        .pipe( uglify(), )
+        .pipe( rename( { suffix: '.min' } ), )
+        .pipe( gulp.dest( './build/scripts/' ) );
     callback();
 });
 
 
 //sass и autoprefixer
-gulp.task('sass', function (callback) {
-  return gulp.src('./src/sass/*.scss')
+gulp.task( 'sass', function ( callback ) {
+  return gulp.src( './src/sass/*.scss' )
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -75,8 +77,8 @@ gulp.task( 'cssmin', function( callback ) {
 });
 
 
-//сборка спрайтов
-gulp.task('icon', function(callback) {
+// сборка спрайтов
+gulp.task( 'icon', function( callback ) {
     var spriteData = 
         gulp.src('./src/sprite/*.*')
             .pipe(plumber())
@@ -90,22 +92,21 @@ gulp.task('icon', function(callback) {
 });
 
 
-//оптимизация изображений
-gulp.task('imagemin', function(callback) {
-    gulp.src('./src/images/*')
-        .pipe(plumber())
-        .pipe(imagemin())
-        .pipe(gulp.dest('./build/images'));
+// оптимизация изображений
+gulp.task( 'imagemin', function( callback ) {
+    gulp.src( './src/images/*' )
+        .pipe( plumber() )
+        .pipe( imagemin() )
+        .pipe( gulp.dest( './build/images' ) ) ;
     callback();
 });
 
 
-
 gulp.task( 'watch', function () {
-  gulp.watch( './src/sass/**/*.*', ['sass', 'cssmin'] );
-  gulp.watch( './src/pug/**/*.*', ['pug'] );
-  gulp.watch( './src/sprite/**/*.*', ['icon'] );
-  gulp.watch( './src/scripts/**/*.*', ['js'] );
+  gulp.watch( './src/sass/**/*.*',          [ 'sass', 'cssmin'] );
+  gulp.watch( './src/pug/**/*.*',           [ 'pug'] );
+  gulp.watch( './src/sprite/**/*.*',        [ 'icon'] );
+  gulp.watch( './src/scripts/**/*.*',       [ 'js'] );
 });
 
-gulp.task('default', ['sass', 'pug', 'imagemin', 'watch']);
+gulp.task( 'default', ['sass', 'pug', 'js', 'imagemin', 'watch'] );
