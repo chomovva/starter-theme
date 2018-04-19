@@ -86,8 +86,8 @@ gulp.task( 'icon', function( callback ) {
                 imgName: '../images/icon.png',
                 cssName: '_icon.scss',
             }));
-    spriteData.img.pipe(gulp.dest('./build/images/'));
-    spriteData.css.pipe(gulp.dest('./src/sass/components/'));
+    spriteData.img.pipe(gulp.dest( './build/images/' ));
+    spriteData.css.pipe(gulp.dest( './src/sass/components/' ));
     callback();
 });
 
@@ -109,4 +109,5 @@ gulp.task( 'watch', function () {
   gulp.watch( './src/scripts/**/*.*',       [ 'js'] );
 });
 
-gulp.task( 'default', ['sass', 'pug', 'js', 'imagemin', 'watch'] );
+gulp.task( 'default', [ 'sass', 'pug', 'js', 'imagemin', 'watch' ] );
+gulp.task( 'sprites', [ 'icon', 'imagemin', 'sass' ] );
