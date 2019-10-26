@@ -1,0 +1,10 @@
+//-
+	Шапка сайта
+
+
+.container
+	if ( page.type == 'front-page' )
+		h1.blogname: a( href="home.html" ) #{blog.name}
+	else
+		.blogname: a( href="home.html" ) #{blog.name}
+	p.blogdescription #{blog.description}

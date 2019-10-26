@@ -1,0 +1,24 @@
+//-
+	Набор миксинов
+
+
+
+
+
+mixin progress( percent )
+	.progress
+		.progress-bar( role="progressbar", style="width: " + percent, aria-valuenow=percent, aria-valuemin="0", aria-valuemax="100" )
+
+
+
+
+mixin widget( args )
+	.widget
+		if ( args.title )
+			h3.widget__title.title #{args.title}
+		else
+			h3.widget__title.title Hello, world!
+		if block
+			block
+		else
+			p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.

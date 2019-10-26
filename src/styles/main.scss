@@ -1,0 +1,47 @@
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/flex";
+@import "helpers/mixins";
+@import "helpers/extends.button";
+@import "helpers/extends.icons";
+@import "helpers/extends";
+
+
+@import "base/normalize";
+@import "base/type";
+@import "base/wrapper";
+@import "base/flexboxgrid";
+
+
+@import "widgets/tagcloud";
+@import "widgets/calendar";
+
+
+
+@import"navs/main";
+
+
+
+@import "blocks/aside";
+@import "blocks/content";
+@import "blocks/pager";
+@import "blocks/section";
+@import "blocks/burger";
+@import "blocks/breadcrumbs";
+@import "blocks/pagination";
+@import "blocks/form";
+@import "blocks/buttons";
+@import "blocks/breadcrumbs";    // "хлебные крошки"
+@import "blocks/to-top-button";  // кнопка наверх
+@import "blocks/header";         // Шапка сайта
+@import "blocks/footer";         // Подвал сайта
+
+
+
+@import "home/about";            // стили блока
+
+
+
+@import "pages/home";            // главная сраница
+@import "pages/archive";         // страница блога / архива
+@import "pages/error404";        // страница ошибки 404

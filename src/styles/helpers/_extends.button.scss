@@ -1,0 +1,61 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%button {
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+	border: none;
+	padding: 0.5em 2em;
+	color: #fff;
+	text-transform: uppercase;
+	border-radius: 5px;
+	&:hover { text-decoration: none; }
+
+}
+
+
+%button-default {
+	background-color: $brand-default;
+}
+
+
+%button-primary {
+	background-color: $brand-primary;
+}
+
+
+%button-success {
+	background-color: $brand-success;
+}
+
+
+%button-warning {
+	background-color: $brand-warning;
+}
+
+
+
+%button-small {
+	padding: 0 1em;
+	border-radius: 1px;
+	font-size: 85%;
+}
+
+
+
+%button-large {
+	padding: 1em 3em;
+	border-radius: $border-radius * 2;
+}

@@ -1,0 +1,53 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+mixin aside_column_widget ( args )
+	.col-xs-12.col-sm-12.col-md-12.col-lg-12: .widget
+		h3.widget__title Hello, world!
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga explicabo temporibus, magnam ratione velit vitae commodi expedita.
+		block
+
+
+
+
+
+
+
+
+
+
+//
+// aside--right
+aside.aside.aside--column: .row
+	+aside_column_widget( {} )
+		ul
+			li
+				a(href="#") Yastech Developments: The Best Web Design Company
+				ul
+					li: a(href="#") Best PSD Freebies: Login Form
+					li: a(href="#") Best PSD Freebies: Login Form
+					li: a(href="#") Best PSD Freebies: Login Form
+			li: a(href="#") Best PSD Freebies: Login Form
+			li: a(href="#") Wedding Photography Shoot Takes & Tricks
+			li: a(href="#") Best PSD Freebies: Amazing Design Resource & Inspiration
+			li: a(href="#") Best PSD Freebies: Login Form
+			li: a(href="#") Wedding Photography Shoot Takes & Tricks
+			li: a(href="#") Best PSD Freebies: Amazing Design Resource & Inspiration
+	+aside_column_widget( {} )
+		include ../forms/_search
+	+aside_column_widget( { title: 'Календарь' } )
+		include ../widgets/_calendar
+	+aside_column_widget( {} )
+		include ../widgets/_tagcloud
+// aside--right
+//

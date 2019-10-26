@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+.about {
+
+	.permalink {
+		@extend %button;
+		@extend %button-primary;
+		margin-top: 1em;
+	}
+
+}

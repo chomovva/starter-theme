@@ -1,0 +1,59 @@
+//
+//	TYPE
+//
+//
+
+
+.font-italic { font-style: italic; }
+.font-bold { font-weight: bold; }
+.font-normal { font-weight: normal;	font-style: normal; }
+
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+
+
+.small { font-size: 80%; }
+.lead {
+	margin-bottom: $line-height-base;
+  font-size: floor( ( $font-size-base * 1.15 ) );
+  font-weight: 300;
+  line-height: 1.4;
+  @media ( min-width: $screen-sm ) {
+    font-size: ( $font-size-base * 1.5 );
+  }
+}
+.normal { font-size: 1.00em; font-weight: normal;	font-style: normal; text-transform: none; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.display-inline {	display: inline-block; }
+
+.pull-left, .alignleft { float: left; }
+.pull-right, .alignright { float: right; }
+
+img.alignleft, a.alignleft img { margin: 5px 10px 10px 0px; }
+img.alignright, a.alignright img { margin: 5px 0px 10px 10px; }
+
+.clearfix { @extend %clearfix; }
+
+.wp-caption {}
+.wp-caption-text {}
+.sticky {}
+.gallery-caption {}
+.bypostauthor {}
+
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.list-unstyled { @extend %list-unstyled; }
+
+.list-inline { @extend %list-inline; }
+
+.sr-only { display: none; }

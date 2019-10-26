@@ -1,0 +1,32 @@
+//
+//	WP
+//	Странциа Архива
+//
+
+
+
+
+.archive {
+
+
+	.entry {
+		margin: 1em auto;
+	}
+
+
+	&__entry {
+		
+		.thumbnail {
+			display: block;
+			margin-top: 1em;
+		}
+
+		.permalink {
+			@extend %button;
+			@extend %button-primary;
+		}
+
+	}
+
+	
+}

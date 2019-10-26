@@ -1,0 +1,29 @@
+//
+//
+//  Шапка сайта
+//
+//
+
+
+.header {
+
+	padding: 2em 0;
+	
+	.blogname {
+		@extend h1;
+		color: #fff;
+	}
+
+	.blogname a {
+		color: #fff;
+	}
+
+	.blogname a:hover {
+		text-decoration: none;
+	}
+
+	.blogdescription {
+		color: #fff;
+	}
+
+}

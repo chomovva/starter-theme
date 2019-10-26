@@ -1,0 +1,25 @@
+%list-unstyled { @include list-unstyled; }
+
+%list-inline { @include list-inline; }
+
+%xy-center { @include xy-center; }
+
+%center-block { @include center-block; }
+
+%link-unstyled {
+	@include td ( inherit, inherit );
+	@include color ( inherit, inherit, inherit, inherit );
+}
+
+%clearfix { @include clearfix; }
+
+%text-overflow { @include text-overflow; }
+
+%dl-horizontal { @include dl-horizontal; }
+
+
+%title {
+	color: $titles-color;
+	font-weight: bold;
+  	margin: 0.2em auto;
+}

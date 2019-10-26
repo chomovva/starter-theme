@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.burger {
+
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: inline-block;
+    z-index: 1111;
+
+	.bar {
+		padding: 0;
+	    width: 30px;
+	    height: 4px;
+	    background-color: #fff;
+	    display: block;
+	    border-radius: 4px;
+	    transition: all 0.4s ease-in-out;
+	    position: absolute;
+	}
+
+	.bar1 { top: 0; }
+	.bar2, .bar3 { top: 13.5px; }
+	.bar3 { right: 0; }
+	.bar4 { bottom: 0; }
+
+
+	&--active {
+		z-index: 1111;
+		.bar1 {
+		    transform: rotate(45deg);
+		    transform-origin: 5%;
+		    width: 41px
+		}
+		.bar2 {
+		    transform: translateX(-40px);
+		    background-color: transparent;
+		}
+		.bar3 {
+		    transform: translateX(40px);
+		    background-color: transparent;
+		}
+		.bar4 {
+		    transform-origin: 5%;
+		    transform: rotate(-45deg);
+		    width: 41px;
+		}
+	}
+
+
+}
