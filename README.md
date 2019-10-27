@@ -1,1 +1,1 @@
-# project_template
+# Starter Wordpress Theme

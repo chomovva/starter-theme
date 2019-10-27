@@ -97,7 +97,6 @@ function the_breadcrumb() {
 function get_translate_id( $id, $type = 'post' ) {
 	$result = '';
 	if ( $id && ! empty( $id ) ) {
-		$result = $id;
 		if ( defined( 'POLYLANG_FILE' ) ) {
 			switch ( $type ) {
 				case 'category':
@@ -110,7 +109,9 @@ function get_translate_id( $id, $type = 'post' ) {
 					break;
 			} // switch
 			$result = ( $translate ) ? $translate : '';
-		} // if defined
+		} else {
+			$result = $id;
+		}
 	}
 	return $result;
 }
