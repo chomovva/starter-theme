@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<?php get_template_part( 'parts/head' ); ?>
-	<body <?php body_class( $class ); ?> data-nav="inactive">
+	<body <?php body_class(); ?> data-nav="inactive">
 		<div class="wrapper" id="wrapper">
 			<header class="wrapper__item wrapper__item--header header" id="header">
 				<div class="container">
@@ -21,7 +21,7 @@
 					'theme_location'  => 'main',
 					'menu'            => 'main',
 					'container'       => 'nav',
-					'container_class' => 'menu-{menu-slug}-container wrapper__item wrapper__item--nav nav',
+					'container_class' => 'wrapper__item wrapper__item--nav nav',
 					'container_id'    => 'nav',
 					'menu_class'      => 'nav__list list',
 					'menu_id'         => '',
