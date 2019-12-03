@@ -1,1 +1,7 @@
 node_modules/
+examples/
+scripts/
+styles/
+images/
+pass.js
+index.html
