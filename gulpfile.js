@@ -15,54 +15,10 @@ var del            = require( 'del' );
 var browserSync    = require( 'browser-sync' );
 var zip            = require( 'gulp-zip' );
 var concat         = require( 'gulp-concat' );
-var gutil          = require( 'gulp-util' );
-var ftp            = require( 'vinyl-ftp' );
 
 
 
-// pass.js
-// module.exports = {
-// 	host: '',
-// 	login: '',
-// 	password: '',
-// };
-
-
-
-const pass         = require( './pass.js' );
-
-
-
-styles.compiler    = require( 'node-sass' );
-
-
-
-gulp.task( 'deploy', function() {
-	var conn = ftp.create( {
-		host: pass.host,
-		user: pass.login,
-		password: pass.password,
-		parallel:  10,
-		log: gutil.log
-	} );
-	var globs = [
-		'./**/**/*',
-		'!./node_modules',
-		'!./src',
-		'!./gulpfile.js',
-		'!./package-lock.json',
-		'!./package.json',
-		'!./index.html',
-		'!./.gitignore',
-		'!./pass.js',
-		'!./README.md',
-		'!./examples',
-		'!./.git'
-	];
-	return gulp.src( globs, { buffer: false } )
-		.pipe( conn.dest( '/public_html/' ) );
-});
-
+styles.compiler      = require( 'node-sass' );
 
 
 
@@ -73,7 +29,6 @@ gulp.task( 'main_scripts', function() {
 		.pipe( gulp.dest( './scripts/' ) );
 	}
 );
-
 
 
 
@@ -141,11 +96,11 @@ gulp.task( 'fonts', function () {
 
  
 gulp.task( 'styles', function () {
-	return gulp.src( './src/styles/*.scss' )
+	return gulp.src( [ './src/styles/*.scss', '!./src/styles/gutenberg.scss' ] )
 		.pipe( plumber() )
 		.pipe( sourcemaps.init() )
 		.pipe( styles().on( 'error', styles.logError ) )
-		.pipe( autoprefixer() )
+		.pipe( autoprefixer( [ 'last 15 versions', '> 1%', 'ie 11' ], { cascade: true } ) )
 		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( './styles/' ) )
 		.on( 'end', browserSync.reload );
@@ -181,8 +136,8 @@ gulp.task( 'index', function () {
 
 
 
-gulp.task( 'scripts', function () {
-	return gulp.src( './src/scripts/*.js' )
+gulp.task( 'other_scripts', function () {
+	return gulp.src( [ './src/scripts/*.js' ] )
 		.pipe( plumber() )
 		.pipe( gulp.dest( './scripts/' ) )
 		.pipe( minscripts() )
@@ -194,7 +149,7 @@ gulp.task( 'scripts', function () {
 
 
 gulp.task( 'minscripts', function () {
-	return gulp.src( [ './scripts/*.js', '!./scripts/*.min.js' ] )
+	return gulp.src( [ './scripts/*.js', '!./scripts/*.min.js', '!./scripts/gutenberg.js' ] )
 		.pipe( plumber() )
 		.pipe( minscripts() )
 		.pipe( rename( { suffix: '.min' } ) )
@@ -239,6 +194,8 @@ gulp.task( 'clearcache', function () {
 gulp.task( 'minify', gulp.series( 'minstyles', 'minscripts' ) );
 
 
+gulp.task( 'scripts', gulp.series( 'main_scripts', 'gutenberg_scripts', 'other_scripts', 'minscripts' ) );
+
 
 gulp.task( 'gutenberg', function () {
 	gulp.watch( './src/scripts/gutenberg/*.js',          gulp.series( 'gutenberg_scripts' ) );
@@ -246,9 +203,8 @@ gulp.task( 'gutenberg', function () {
 } );
 
 
-
 gulp.task( 'watch', function () {
-	gulp.watch( './src/styles/**/*.scss',                gulp.series( 'styles') );
+	gulp.watch( [ './src/styles/**/*.scss', './src/styles/gutenberg/*.scss' ], gulp.series( 'styles') );
 	gulp.watch( './src/views/**/*.pug',                  gulp.series( 'html', 'index' ) );
 	gulp.watch( './src/scripts/**/*.js',                 gulp.series( 'scripts', 'main_scripts' ) );
 	gulp.watch( './src/images/**/*.{png,jpg,svg,gif}',   gulp.series( 'images' ) );
@@ -259,6 +215,6 @@ gulp.task( 'watch', function () {
 
 
 gulp.task( 'default', gulp.series(
-	gulp.parallel( 'html', 'index', 'styles', 'scripts', 'main_scripts', 'images', 'video', 'fonts' ),
+	gulp.parallel( 'html', 'index', 'styles', 'scripts', 'images', 'video', 'fonts', 'main_scripts' ),
 	gulp.parallel( 'watch', 'server' )
 ) );

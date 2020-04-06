@@ -1,7 +1,7 @@
-node_modules/
-examples/
-scripts/
-styles/
-images/
-pass.js
-index.html
+/styles/
+/scripts/
+/images/
+/node_modules/
+/examples/
+/index.html
+/pass.js
